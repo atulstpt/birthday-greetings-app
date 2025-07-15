@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${wishType} + ' Wishes'">Wishes</title>
+</head>
+<body>
+<p>Dear <span th:text="${firstName} + ' ' + ${lastName}">Name</span>,</p>
+<p th:utext="${message}">Message</p>
+<p>Warm regards,<br>
+    <span th:text="${senderName}">Sender Name</span><br>
+    <span th:text="${senderEmail}">Sender Email</span></p>
+</body>
+</html>
