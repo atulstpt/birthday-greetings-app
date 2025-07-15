@@ -32,5 +32,4 @@ jobs:
           java-version: '21'
 
       - name: Build with Maven
-        working-directory: ./birthday-greetings-app
         run: mvn clean install
