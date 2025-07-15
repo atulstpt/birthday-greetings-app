@@ -40,3 +40,10 @@ jobs:
         run: mvn clean install
       - name: Run tests
         run: mvn test
+      # Add after 'Checkout code' step
+      - name: Set snapshot version
+        run: mvn versions:set -DnewVersion=1.0.${{ github.run_number }}-SNAPSHOT
+
+      # For stable release (add a separate job or workflow triggered by tag)
+      - name: Set release version
+        run: mvn versions:set -DnewVersion=1.0.${{ github.run_number }}
