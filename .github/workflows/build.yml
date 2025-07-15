@@ -16,8 +16,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: user
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: birthdaygreeting_app
         options: >-
           --health-cmd="pg_isready"
@@ -26,8 +26,8 @@ jobs:
           --health-retries=5
     env:
       DB_URL: jdbc:postgresql://localhost:5432/birthdaygreeting_app
-      DB_USERNAME: user
-      DB_PASSWORD: password
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
