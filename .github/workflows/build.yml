@@ -1,3 +1,18 @@
+services:
+  postgres:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    env:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: agscloudtech
+      POSTGRES_DB: birthdaygreeting_app
+    options: >-
+      --health-cmd="pg_isready -U your_db_user"
+      --health-interval=10s
+      --health-timeout=5s
+      --health-retries=5
+
 name: birthday-greetings-app
 
 on:
