@@ -57,11 +57,16 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Build, Test & SonarQube
+      - name: Build, Test & SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          SONAR_HOST_URL: https://sonarcloud.io
+        run: |
+          mvn -B verify sonar:sonar \
+            -Dsonar.projectKey=com.ags:birthday-grretings-app \
+            -Dsonar.organization=AGS Cloud Technologies \
+            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
+
 #      # Add after 'Checkout code' step
 #      - name: Set snapshot version
 #        run: mvn versions:set -DnewVersion=1.0.${{ github.run_number }}-SNAPSHOT
