@@ -60,12 +60,13 @@ jobs:
       - name: Build, Test & SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
           mvn -B verify sonar:sonar \
-            -Dsonar.projectKey= atulstpt_birthday-greetings-app \
-            -Dsonar.organization=ags-cloud-technologies \
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
+            -Dsonar.projectKey=atulstpt_birthday-greetings-app \
+            -Dsonar.organization=ags-cloud-technologies  \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
 
 #      # Add after 'Checkout code' step
 #      - name: Set snapshot version
