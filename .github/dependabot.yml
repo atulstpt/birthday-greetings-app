@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"  # This refers to .github/workflows by default
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "maven"
+    directory: "/"  # If pom.xml is in the root
+    schedule:
+      interval: "daily"
