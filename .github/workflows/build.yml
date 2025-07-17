@@ -63,7 +63,7 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         run: |
           mvn -B verify sonar:sonar \
-            -Dsonar.projectKey=com.ags:birthday-grretings-app \
+            -Dsonar.projectKey= sonar.issues.defaultAssigneeLogin \
             -Dsonar.organization=AGS Cloud Technologies \
             -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
 
