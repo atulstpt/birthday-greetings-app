@@ -1,11 +1,15 @@
 version: 2
 updates:
+  # 1. Maven dependencies
+  - package-ecosystem: "maven"
+    directory: "/"  # Change this if your pom.xml is in a subfolder
+    schedule:
+      interval: "daily"  # or "weekly" if preferred
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+
+  # 2. GitHub Actions updates
   - package-ecosystem: "github-actions"
-    directory: "/"  # This refers to .github/workflows by default
+    directory: "/"  # Looks inside .github/workflows automatically
     schedule:
       interval: "weekly"
-
-  - package-ecosystem: "maven"
-    directory: "/"  # If pom.xml is in the root
-    schedule:
-      interval: "daily"
